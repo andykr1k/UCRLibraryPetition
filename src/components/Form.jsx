@@ -26,7 +26,7 @@ export default function Form() {
                 <Input
                     focusBorderColor='blue.400'
                     variant='flushed'
-                    placeholder='Enter your Email for Updates!'
+                    placeholder='Enter School Email to Sign Petition!'
                     size='md'
                     color='black'
                     onChange={ (e) => setEmail(e.target.value) }
@@ -37,7 +37,7 @@ export default function Form() {
                     colorScheme='blue'
                     onClick={() =>
                         toast({
-                        title: 'You have been added to our newsletter.',
+                        title: 'You have been added to the petition.',
                         status: 'info',
                         position: 'top',
                         variant: 'subtle',
