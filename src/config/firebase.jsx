@@ -42,11 +42,10 @@ export function SignIn() {
       <motion.button       
       whileHover={{ scale: 1.1 }}
       transition={{ type: "spring", stiffness: 400, damping: 10 }} 
-      className='bg-slate-500 rounded-lg shadow-lg p-2 text-center text-white flex items-center justify-center' 
+      className='bg-slate-500 rounded-lg shadow-lg p-3 text-center text-white flex items-center justify-center' 
       onClick={signInWithGoogle}
       >
-        <img src={googleLogo} className='w-1/6'/>
-        Sign In With Google
+      Sign In
       </motion.button>
     </div>
   )
@@ -58,7 +57,7 @@ export function SignOut() {
       <motion.button       
       whileHover={{ scale: 1.1 }}
       transition={{ type: "spring", stiffness: 400, damping: 10 }} 
-      className='bg-slate-500 rounded-lg shadow-lg p-3 text-center text-white' 
+      className='bg-slate-500 rounded-lg shadow-lg p-3 text-center text-white flex items-center justify-center' 
       onClick={() => auth.signOut()}
       >
             Sign Out

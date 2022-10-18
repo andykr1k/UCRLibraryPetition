@@ -4,7 +4,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { collection, addDoc, doc, documentId } from "firebase/firestore"; 
 import { Input, useToast, Button } from '@chakra-ui/react'
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
-
+import { motion } from 'framer-motion';
 export default function Form() {
     const toast = useToast()
     const [user, loading, error] = useAuthState(auth);
@@ -54,15 +54,16 @@ export default function Form() {
     return(
         <div className='grid place-items-center p-3'>
         { user ?
-          <div className=''>
-                <Button
-                    type="submit"
-                    variant='outline'
-                    colorScheme='blue'
+          <div className='grid place-items-center space-y-2'>
+                <motion.button
+                    className='border-blue-600 border-2 p-2 rounded-lg'
+                    whileHover={{ scale: 1.1 }}
+                    transition={{ type: "spring", stiffness: 400, damping: 10 }} 
                     onClick={write}
                     >
                     Sign Petition
-                </Button>
+                </motion.button>
+                <SignOut />
             </div>
         :
         <div className='grid place-items-center w-48 h-16'>
