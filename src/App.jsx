@@ -1,16 +1,19 @@
 import { useState } from 'react'
-import { Footer } from './components'
+import { Footer, Form } from './components'
 import * as Pages from './pages'
+import { Box } from '@chakra-ui/react'
 import './App.css'
 
 function App() {
 
   return (
-    <div className="App">
-      <h1>UCR Library Hours Petition</h1>
-      <footer className='sticky bottom-0'>
+    <div className='w-full h-screen justify-center items-center'>
+        <Box w='100%' h='100%' bgGradient='linear(to-t, white, blue.200)'/>
+      <div className='absolute inset-0 justify-center items-center z-10 p-10'>
+        <h1 className='flex justify-center text-3xl font-bold'>UCR LIBRARY HOURS PETITION</h1>
+        <Form />
         <Footer />
-      </footer>
+      </div>
     </div>
   )
 }
