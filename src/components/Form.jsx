@@ -21,7 +21,7 @@ export default function Form() {
       Email = '';
     }
     return(
-        <div className='p-5'>
+        <div className='p-5 m-5'>
             <form onSubmit={writeContactData} className='flex space-x-5'>
                 <Input
                     focusBorderColor='blue.400'
@@ -34,7 +34,7 @@ export default function Form() {
                 <Button
                     type="submit"
                     variant='outline'
-                    colorScheme=''
+                    colorScheme='blue'
                     onClick={() =>
                         toast({
                         title: 'You have been added to our newsletter.',
