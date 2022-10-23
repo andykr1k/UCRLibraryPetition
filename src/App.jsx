@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Footer, Form, HourStats } from './components'
 import * as Pages from './pages'
 import { Box } from '@chakra-ui/react'
+import UCR from './assets/ucr.jpg'
 import './App.css'
 
 function App() {
@@ -13,10 +14,13 @@ function App() {
         <header>
           <h1 className='flex justify-center text-3xl font-bold text-center	'>UCR LIBRARY PETITION</h1>
         </header>
-        <main className='flex-grow'>
+        <main className='flex-grow object-center'>
           <h2 className='flex justify-center text-xl text-stone-500 font-bold p-3 text-center	'>
             Studying late at night is a quintessential college experience.
           </h2>
+          <div className='grid place-items-center'>
+          <img src={UCR} class="object-cover h-48 w-96"/>
+          </div>
           <HourStats />
           <h3 className='flex justify-center text-md font-bold text-stone-500 md:p-5 ml-1 mr-1 md:ml-10 md:mr-10 text-center'>
             We pay tuition to succeed in our classes. Closing the library at 8 pm does not align with the stadards of the students attending UCR. A quiet space is needed at all hours for all students especially students who don't have the accommodation of a quiet room in their homes.
