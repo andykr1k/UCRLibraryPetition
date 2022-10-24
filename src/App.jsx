@@ -14,15 +14,20 @@ function App() {
         <header>
           <h1 className='flex justify-center text-3xl font-bold text-center	'>UCR LIBRARY PETITION</h1>
         </header>
-        <main className='flex-grow object-center'>
+        <main className='flex-grow'>
           <h2 className='flex justify-center text-xl text-stone-500 font-bold p-3 text-center	'>
             Studying late at night is a quintessential college experience.
           </h2>
+          <div className='hidden md:grid place-items-center p-5 '>
+            <img src={UCR} className='h-64 w-128 object-fill rounded-md'/>
+          </div>
           <HoursTable />
           <h3 className='flex justify-center text-md font-bold text-stone-500 md:p-5 mt-2 ml-1 mr-1 md:ml-10 md:mr-10 text-center'>
             We pay tuition to succeed in our classes. Closing the library at 8 pm does not align with the standards of the students attending UCR. A quiet space is needed at all hours for all students especially students who don't have the accommodation of a quiet room in their homes. Please enter your school email below to be added to our petition. You will receive updates regarding the status of our petition as well as a count update for the amount of UCR students who have also signed.
           </h3>
-          <Form />
+          <div className='pb-5'>
+            <Form />
+          </div>
         </main>
         <footer className='fixed bottom-0 right-0 left-0'>
           <Footer />
