@@ -18,7 +18,7 @@ export default function HourStats() {
     return(
         <div>
         <TableContainer>
-            <Table variant='striped'>
+            <Table size='sm' variant='striped'>
                 <Thead>
                 <Tr>
                     <Th>School</Th>
