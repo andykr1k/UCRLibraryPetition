@@ -26,7 +26,7 @@ export default function Form() {
                 <Input
                     focusBorderColor='blue.400'
                     variant='flushed'
-                    placeholder='Enter School Email to Sign Petition!'
+                    placeholder='Enter School Email'
                     size='md'
                     color='black'
                     onChange={ (e) => setEmail(e.target.value) }
