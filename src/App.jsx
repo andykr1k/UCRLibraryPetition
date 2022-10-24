@@ -20,7 +20,7 @@ function App() {
           </h2>
           <HourStats />
           <h3 className='flex justify-center text-md font-bold text-stone-500 md:p-5 ml-1 mr-1 md:ml-10 md:mr-10 text-center'>
-            We pay tuition to succeed in our classes. Closing the library at 8 pm does not align with the stadards of the students attending UCR. A quiet space is needed at all hours for all students especially students who don't have the accommodation of a quiet room in their homes.
+            We pay tuition to succeed in our classes. Closing the library at 8 pm does not align with the stadards of the students attending UCR. A quiet space is needed at all hours for all students especially students who don't have the accommodation of a quiet room in their homes. Please enter your school email below to be added to our petition. You will receive updates regarding the status of our petition as well as a count update for the amount of UCR students who have also signed.
           </h3>
           <Form />
         </main>
