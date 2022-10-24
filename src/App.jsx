@@ -1,4 +1,6 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { db } from './config/firebase'
+import { collection, addDoc, getCountFromServer } from "firebase/firestore"; 
 import { Footer, Form, HourStats, HoursTable } from './components'
 import * as Pages from './pages'
 import { Box } from '@chakra-ui/react'
@@ -6,7 +8,18 @@ import UCR from './assets/ucr.jpg'
 import './App.css'
 
 function App() {
+  var [docsCount, setDocsCount] = useState('')
 
+  const countingDocs = async () => {
+    const coll = collection(db, "signers");
+    const snapshot = await getCountFromServer(coll);
+    console.log('count: ', snapshot.data().count);
+    setDocsCount(snapshot.data().count);
+}
+  
+  useEffect(() => {
+    countingDocs();
+  }, []);
   return (
     <div className='w-full h-screen justify-center items-center'>
         <Box w='100%' h='100%' bgGradient='linear(to-t, white, blue.200)'/>
@@ -27,6 +40,9 @@ function App() {
           </h3>
           <div className='pb-5'>
             <Form />
+            <div className='flex justify-center text-md font-bold text-blue-500 ml-1 mr-1 md:ml-10 md:mr-10 text-center'>
+            Signed: {docsCount} UCR Students
+          </div>
           </div>
         </main>
         <footer className='fixed bottom-0 right-0 left-0'>
