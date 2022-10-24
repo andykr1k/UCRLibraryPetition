@@ -6,10 +6,9 @@ import {motion} from 'framer-motion'
 //
 export default function HourStats() {
     return(
-        <div className='grid grid-cols-1 gap-2 p-5'>
-            <StatGroup >
-            <motion.a whileHover={{scale:1.2}} href='https://library.ucr.edu/about/hours'>
-                <Stat variant="danger">
+        <div className='grid grid-cols-2 md:grid-cols-4 p-2 place-items-center'>
+            <motion.a whileHover={{scale:1.2}} href='https://library.ucr.edu/about/hours' target="_blank">
+                <Stat>
                     <StatLabel>UCR</StatLabel>
                     <StatNumber>7:30 AM - 8 PM</StatNumber>
                     <StatHelpText>
@@ -18,8 +17,9 @@ export default function HourStats() {
                     </StatHelpText>
                 </Stat>
             </motion.a>
-            <motion.a whileHover={{scale:1.2}} href='https://library.ucdavis.edu/hours/'>
-                <Stat variant="great">
+
+            <motion.a whileHover={{scale:1.2}} href='https://library.ucdavis.edu/hours/' target="_blank">
+                <Stat>
                     <StatLabel>UCD Study Rooms</StatLabel>
                     <StatNumber>12 AM - 12 AM</StatNumber>
                     <StatHelpText>
@@ -28,8 +28,9 @@ export default function HourStats() {
                     </StatHelpText>
                 </Stat>
             </motion.a>
-            <motion.a whileHover={{scale:1.2}} href='https://www.library.ucla.edu/location/powell-library'>
-                <Stat variant="great">
+
+            <motion.a whileHover={{scale:1.2}} href='https://www.library.ucla.edu/location/powell-library' target="_blank">
+                <Stat>
                     <StatLabel>UCLA Powell Library</StatLabel>
                     <StatNumber>8 AM - 11 PM</StatNumber>
                     <StatHelpText>
@@ -39,8 +40,8 @@ export default function HourStats() {
                 </Stat>
             </motion.a>
 
-            <motion.a whileHover={{scale:1.2}} href='https://library.ucsd.edu/hours/'>
-                <Stat variant="great">
+            <motion.a whileHover={{scale:1.2}} href='https://library.ucsd.edu/hours/' target="_blank">
+                <Stat>
                     <StatLabel>UCSD Overnight Study</StatLabel>
                     <StatNumber>12 AM - 12 AM</StatNumber>
                     <StatHelpText>
@@ -50,7 +51,6 @@ export default function HourStats() {
                 </Stat>
             </motion.a>
                 
-            </StatGroup>
         </div>
     )
 }
