@@ -35,7 +35,7 @@ export default function HourStats() {
                 <Tr>
                     <Td>UCLA</Td>
                     <Td>Powell Library</Td>
-                    <Td>8 AM - 11 PM</Td>
+                    <Td>24 Hours</Td>
                 </Tr>
                 <Tr>
                     <Td>UCSD</Td>
