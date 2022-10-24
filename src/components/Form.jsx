@@ -21,7 +21,7 @@ export default function Form() {
       Email = '';
     }
     return(
-        <div className='p-5 m-5'>
+        <div className='p-5'>
             <form onSubmit={writeContactData} className='flex space-x-5'>
                 <Input
                     focusBorderColor='blue.400'
