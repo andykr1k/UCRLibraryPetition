@@ -58,8 +58,11 @@ function App() {
           </h3>
           <div className='pb-5'>
             <Form />
+            <div className='grid'>
             <div className='flex justify-center text-md font-bold text-blue-500 ml-1 mr-1 mt-1 md:ml-10 md:mr-10 text-center'>
             Signed: {DocsCount} UCR Students
+            </div>
+            <div className='flex justify-center text-xs font-bold text-blue-300 ml-1 mr-1 mt-1 md:ml-10 md:mr-10 text-center'>*Updated Daily*</div>
             </div>
           </div>
         </main>
