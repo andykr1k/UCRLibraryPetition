@@ -7,8 +7,7 @@ export default function Form() {
     const toast = useToast()
     var [Email, setEmail] = useState('')
   
-    const writeContactData = async(e) => {
-      e.preventDefault();
+    const writeContactData = async() => {
       try {
         await addDoc(collection(db, "signers"), {
           email: Email,

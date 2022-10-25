@@ -13,6 +13,7 @@ function App() {
   const countingDocs = async () => {
     const coll = collection(db, "signers");
     const snapshot = await getCountFromServer(coll);
+    console.log("Signed: " + snapshot.data().count);
     setDocsCount(snapshot.data().count);
   }
 
