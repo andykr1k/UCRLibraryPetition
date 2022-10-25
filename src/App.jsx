@@ -10,9 +10,9 @@ function App() {
   var [DocsCount, setDocsCount] = useState(82)
 
   const countingDocs = async () => {
-    // const coll = collection(db, "signed");
-    // const snapshot = await getCountFromServer(coll);
-    // setDocsCount(snapshot.data().count);
+    const coll = collection(db, "signed");
+    const snapshot = await getCountFromServer(coll);
+    setDocsCount(snapshot.data().count);
   }
 
   const deleteEmptyDocs = async () => {
@@ -33,10 +33,10 @@ function App() {
   }
 
   
-  // useEffect(() => {
-  //   countingDocs();
-  //   //deleteEmptyDocs();
-  // }, []);
+  useEffect(() => {
+    countingDocs();
+    //deleteEmptyDocs();
+  }, []);
 
   return (
     <div className='w-full h-screen justify-center items-center'>
