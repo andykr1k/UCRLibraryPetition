@@ -1,69 +1,79 @@
-import { useState } from 'react'
-import { db } from '../config/firebase'
-import { collection, addDoc } from "firebase/firestore"; 
+import { useEffect, useState } from 'react'
+import { db, SignIn, auth, SignOut } from '../config/firebase'
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { collection, addDoc, doc, documentId } from "firebase/firestore"; 
 import { Input, useToast, Button } from '@chakra-ui/react'
+import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 
 export default function Form() {
     const toast = useToast()
-    var [Email, setEmail] = useState('')
-  
+    const [user, loading, error] = useAuthState(auth);
+    const [signed, setSigned] = useState(false);
     const writeContactData = async() => {
-      // try {
-      //   await addDoc(collection(db, "signers"), {
-      //     email: Email,
-      //   });
-      //   console.log("Document written with ID: " + Name );
-      // } catch (e) {
-      //   console.error("Error adding document: " + Name, e);
-      // }
-  
-      // Email = '';
+      try {
+        await addDoc(collection(db, "signed"), {
+          email: user.email,
+          name: user.displayName
+        });
+        console.log("Document written with ID: " + documentId );
+      } catch (e) {
+        console.error("Error adding document: " + name, e);
+      }
     }
 
     const write = async(e) => {
       e.preventDefault();
-      if (Email != ''){
-        writeContactData();
-        toast({
-          title: 'You have been added to the petition.',
-          status: 'success',
-          position: 'top',
-          variant: 'subtle',
-          duration: 3000,
-          isClosable: true,
-          });
-      } else {
-        toast({
-          title: 'Please Enter School Email.',
-          status: 'error',
-          position: 'top',
-          variant: 'subtle',
-          duration: 3000,
-          isClosable: true,
-          });
+      writeContactData();
+      toast({
+        title: 'You have been added to the petition.',
+        status: 'success',
+        position: 'top',
+        variant: 'subtle',
+        duration: 3000,
+        isClosable: true,
+        });
       }
-    }
+
+      const checking = async() => {
+        const dref = collection(db, "signed");
+        const data = dref.where("email", "==", "akrik001@ucr.edu");
+        if (data.empty) {
+          console.log('No matching documents.');
+          setSigned(false);
+          return;
+        }  else {
+          setSigned(true);
+          return;
+        }
+        }
+    
+        // useEffect(() => {
+        //   checking();
+        // }, []);
 
     return(
-        <div className='p-5'>
-            <form onSubmit={write} className='flex space-x-5'>
-                <Input
-                    focusBorderColor='blue.400'
-                    variant='flushed'
-                    placeholder='Enter School Email'
-                    size='md'
-                    color='black'
-                    type="email"
-                    onChange={ (e) => setEmail(e.target.value) }
-                />
+        <div className='grid place-items-center p-3'>
+        { user ?
+          <div className=''>
                 <Button
                     type="submit"
                     variant='outline'
                     colorScheme='blue'
+                    onClick={write}
                     >
-                    Submit
+                    Sign Petition
                 </Button>
-            </form>
+            </div>
+        :
+        <div className='grid place-items-center w-48 h-16'>
+        { signed
+        ?
+        <SignOut />
+        :
+        <SignIn />
+        }
+        </div>
+        }
         </div>
     )
 }

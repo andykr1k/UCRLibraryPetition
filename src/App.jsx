@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { db } from './config/firebase'
+import { db } from './config/firebase.jsx'
 import { collection, getCountFromServer, query, limit, where} from "firebase/firestore"; 
 import { Footer, Form, HourStats, HoursTable } from './components'
 import { Box } from '@chakra-ui/react'
@@ -7,10 +7,10 @@ import UCR from './assets/ucr.jpg'
 import './App.css'
 
 function App() {
-  var [DocsCount, setDocsCount] = useState('')
+  var [DocsCount, setDocsCount] = useState(82)
 
   const countingDocs = async () => {
-    const coll = collection(db, "signers");
+    const coll = collection(db, "signed");
     const snapshot = await getCountFromServer(coll);
     setDocsCount(snapshot.data().count);
   }
@@ -33,10 +33,10 @@ function App() {
   }
 
   
-  useEffect(() => {
-    countingDocs();
-    //deleteEmptyDocs();
-  }, []);
+  // useEffect(() => {
+  //   countingDocs();
+  //   //deleteEmptyDocs();
+  // }, []);
 
   return (
     <div className='w-full h-screen justify-center items-center'>
@@ -54,13 +54,13 @@ function App() {
           </div>
           <HoursTable />
           <h3 className='flex justify-center text-md font-bold text-stone-500 md:p-5 mt-2 ml-1 mr-1 md:ml-10 md:mr-10 text-center'>
-            We pay tuition to succeed in our classes. Closing the library at 8 pm does not align with the standards of the students attending UCR. A quiet space is needed at all hours for all students especially students who don't have the accommodation of a quiet room in their homes. Please enter your school email below to be added to our petition. You will receive updates regarding the status of our petition as well as a count update for the amount of UCR students who have also signed.
+            We pay tuition to succeed in our classes. Closing the library at 8 pm does not align with the standards of the students attending UCR. A quiet space is needed at all hours for all students especially students who don't have the accommodation of a quiet room in their homes. Once you sign, you will receive updates regarding the status of our petition as well as a count update for the amount of UCR students who have also signed.
           </h3>
           <div className='pb-5'>
             <Form />
-            <div className='flex justify-center text-md font-bold text-blue-500 ml-1 mr-1 md:ml-10 md:mr-10 text-center'>
+            <div className='flex justify-center text-md font-bold text-blue-500 ml-1 mr-1 mt-1 md:ml-10 md:mr-10 text-center'>
             Signed: {DocsCount} UCR Students
-          </div>
+            </div>
           </div>
         </main>
         <footer className='fixed bottom-0 right-0 left-0'>
