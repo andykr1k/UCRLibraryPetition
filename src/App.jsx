@@ -1,8 +1,7 @@
 import { useState, useEffect } from 'react'
 import { db } from './config/firebase'
-import { collection, addDoc, getCountFromServer } from "firebase/firestore"; 
+import { collection, getCountFromServer, query, limit, where} from "firebase/firestore"; 
 import { Footer, Form, HourStats, HoursTable } from './components'
-import * as Pages from './pages'
 import { Box } from '@chakra-ui/react'
 import UCR from './assets/ucr.jpg'
 import './App.css'
@@ -13,54 +12,24 @@ function App() {
   const countingDocs = async () => {
     const coll = collection(db, "signers");
     const snapshot = await getCountFromServer(coll);
-    console.log("Signed: " + snapshot.data().count);
     setDocsCount(snapshot.data().count);
   }
 
   const deleteEmptyDocs = async () => {
-    // try {
-    //   const emptyDocs = db.collection('signers').where('email','==','').get();
-    //   emptyDocs.forEach((doc) => {
-    //     doc.ref.delete();
-    //   });
-    // } catch (error) {
-    //   console.error("Error Found - App.jsx Line 26");
-    // }
-    // async function deleteCollection() {
-    //   const collectionRef = db.collection('signers');
-    //   const query = collectionRef.where("email", "==", "").limit(500);
-    
-    //   return new Promise((resolve, reject) => {
-    //     deleteQueryBatch(db, query, resolve).catch(reject);
-    //   });
-    // }
-    
-    // async function deleteQueryBatch(db, query, resolve) {
-    //   const snapshot = await query.get();
-    
-    //   const batchSize = snapshot.size;
-    //   if (batchSize === 0) {
-    //     // When there are no documents left, we are done
-    //     resolve();
-    //     return;
-    //   }
-    
-    //   // Delete documents in a batch
-    //   const batch = db.batch();
-    //   snapshot.docs.forEach((doc) => {
-    //     batch.delete(doc.ref);
-    //   });
-    //   await batch.commit();
-    
-    //   // Recurse on the next process tick, to avoid
-    //   // exploding the stack.
-    //   process.nextTick(() => {
-    //     deleteQueryBatch(db, query, resolve);
-    //   });
-    // }
+    // const ref = query(
+    //   collection(db, "signers"),
+    //   limit(500),
+    //   where("email", "==", "")
+    // );
 
-    // deleteCollection();
-    // deleteQueryBatch();
+    // if (ref.empty) {
+    //   console.log('No matching documents.');
+    //   return;
+    // }  
+    
+    // Array.from(ref).forEach(doc => {
+    //   console.log(doc.id, '=>', doc.data());
+    // });
   }
 
   
