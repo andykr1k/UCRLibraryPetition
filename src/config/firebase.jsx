@@ -42,7 +42,7 @@ export function SignIn() {
       <motion.button       
       whileHover={{ scale: 1.1 }}
       transition={{ type: "spring", stiffness: 400, damping: 10 }} 
-      className='bg-slate-500 rounded-lg shadow-lg p-3 text-center text-white flex items-center justify-center' 
+      className='border-2 border-sky-600 rounded-lg shadow-lg p-3 text-center text-sky-600 flex items-center justify-center' 
       onClick={signInWithGoogle}
       >
       Sign In
@@ -57,7 +57,7 @@ export function SignOut() {
       <motion.button       
       whileHover={{ scale: 1.1 }}
       transition={{ type: "spring", stiffness: 400, damping: 10 }} 
-      className='bg-slate-500 rounded-lg shadow-lg p-3 text-center text-white flex items-center justify-center' 
+      className='border-2 border-sky-600 rounded-lg shadow-lg p-3 text-center text-sky-600 flex items-center justify-center' 
       onClick={() => auth.signOut()}
       >
             Sign Out
