@@ -10,9 +10,9 @@ function App() {
   var [DocsCount, setDocsCount] = useState(82)
 
   const countingDocs = async () => {
-    const coll = collection(db, "signed");
-    const snapshot = await getCountFromServer(coll);
-    setDocsCount(snapshot.data().count);
+    // const coll = collection(db, "signed");
+    // const snapshot = await getCountFromServer(coll);
+    // setDocsCount(snapshot.data().count);
   }
 
   const deleteEmptyDocs = async () => {

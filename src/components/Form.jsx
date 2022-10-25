@@ -35,16 +35,16 @@ export default function Form() {
       }
 
       const checking = async() => {
-        const dref = collection(db, "signed");
-        const data = dref.where("email", "==", "akrik001@ucr.edu");
-        if (data.empty) {
-          console.log('No matching documents.');
-          setSigned(false);
-          return;
-        }  else {
-          setSigned(true);
-          return;
-        }
+        // const dref = collection(db, "signed");
+        // const data = dref.where("email", "==", "akrik001@ucr.edu");
+        // if (data.empty) {
+        //   console.log('No matching documents.');
+        //   setSigned(false);
+        //   return;
+        // }  else {
+        //   setSigned(true);
+        //   return;
+        // }
         }
     
         // useEffect(() => {
