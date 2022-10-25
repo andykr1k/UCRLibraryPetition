@@ -8,16 +8,16 @@ export default function Form() {
     var [Email, setEmail] = useState('')
   
     const writeContactData = async() => {
-      try {
-        await addDoc(collection(db, "signers"), {
-          email: Email,
-        });
-        console.log("Document written with ID: " + Name );
-      } catch (e) {
-        console.error("Error adding document: " + Name, e);
-      }
+      // try {
+      //   await addDoc(collection(db, "signers"), {
+      //     email: Email,
+      //   });
+      //   console.log("Document written with ID: " + Name );
+      // } catch (e) {
+      //   console.error("Error adding document: " + Name, e);
+      // }
   
-      Email = '';
+      // Email = '';
     }
 
     const write = async(e) => {
