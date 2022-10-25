@@ -7,12 +7,12 @@ import UCR from './assets/ucr.jpg'
 import './App.css'
 
 function App() {
-  var [DocsCount, setDocsCount] = useState('')
+  var [DocsCount, setDocsCount] = useState(149)
 
   const countingDocs = async () => {
-    const coll = collection(db, "signed");
-    const snapshot = await getCountFromServer(coll);
-    setDocsCount(snapshot.data().count);
+    // const coll = collection(db, "signed");
+    // const snapshot = await getCountFromServer(coll);
+    // setDocsCount(snapshot.data().count);
   }
 
   const deleteEmptyDocs = async () => {
@@ -33,10 +33,10 @@ function App() {
   }
 
   
-  useEffect(() => {
-    countingDocs();
-    //deleteEmptyDocs();
-  }, []);
+  // useEffect(() => {
+  //   countingDocs();
+  //   //deleteEmptyDocs();
+  // }, []);
 
   return (
     <div className='w-full h-screen justify-center items-center'>
