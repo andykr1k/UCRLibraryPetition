@@ -8,18 +8,66 @@ import UCR from './assets/ucr.jpg'
 import './App.css'
 
 function App() {
-  var [docsCount, setDocsCount] = useState('')
+  var [DocsCount, setDocsCount] = useState('')
 
   const countingDocs = async () => {
     const coll = collection(db, "signers");
     const snapshot = await getCountFromServer(coll);
-    console.log('count: ', snapshot.data().count);
     setDocsCount(snapshot.data().count);
-}
+  }
+
+  const deleteEmptyDocs = async () => {
+    // try {
+    //   const emptyDocs = db.collection('signers').where('email','==','').get();
+    //   emptyDocs.forEach((doc) => {
+    //     doc.ref.delete();
+    //   });
+    // } catch (error) {
+    //   console.error("Error Found - App.jsx Line 26");
+    // }
+    // async function deleteCollection() {
+    //   const collectionRef = db.collection('signers');
+    //   const query = collectionRef.where("email", "==", "").limit(500);
+    
+    //   return new Promise((resolve, reject) => {
+    //     deleteQueryBatch(db, query, resolve).catch(reject);
+    //   });
+    // }
+    
+    // async function deleteQueryBatch(db, query, resolve) {
+    //   const snapshot = await query.get();
+    
+    //   const batchSize = snapshot.size;
+    //   if (batchSize === 0) {
+    //     // When there are no documents left, we are done
+    //     resolve();
+    //     return;
+    //   }
+    
+    //   // Delete documents in a batch
+    //   const batch = db.batch();
+    //   snapshot.docs.forEach((doc) => {
+    //     batch.delete(doc.ref);
+    //   });
+    //   await batch.commit();
+    
+    //   // Recurse on the next process tick, to avoid
+    //   // exploding the stack.
+    //   process.nextTick(() => {
+    //     deleteQueryBatch(db, query, resolve);
+    //   });
+    // }
+
+    // deleteCollection();
+    // deleteQueryBatch();
+  }
+
   
   useEffect(() => {
     countingDocs();
+    //deleteEmptyDocs();
   }, []);
+
   return (
     <div className='w-full h-screen justify-center items-center'>
         <Box w='100%' h='100%' bgGradient='linear(to-t, white, blue.200)'/>
@@ -41,7 +89,7 @@ function App() {
           <div className='pb-5'>
             <Form />
             <div className='flex justify-center text-md font-bold text-blue-500 ml-1 mr-1 md:ml-10 md:mr-10 text-center'>
-            Signed: {docsCount} UCR Students
+            Signed: {DocsCount} UCR Students
           </div>
           </div>
         </main>
