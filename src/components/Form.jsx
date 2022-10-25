@@ -20,31 +20,47 @@ export default function Form() {
   
       Email = '';
     }
+
+    const write = async(e) => {
+      e.preventDefault();
+      if (Email != ''){
+        writeContactData();
+        toast({
+          title: 'You have been added to the petition.',
+          status: 'success',
+          position: 'top',
+          variant: 'subtle',
+          duration: 3000,
+          isClosable: true,
+          });
+      } else {
+        toast({
+          title: 'Please Enter School Email.',
+          status: 'error',
+          position: 'top',
+          variant: 'subtle',
+          duration: 3000,
+          isClosable: true,
+          });
+      }
+    }
+
     return(
         <div className='p-5'>
-            <form onSubmit={writeContactData} className='flex space-x-5'>
+            <form onSubmit={write} className='flex space-x-5'>
                 <Input
                     focusBorderColor='blue.400'
                     variant='flushed'
                     placeholder='Enter School Email'
                     size='md'
                     color='black'
+                    type="email"
                     onChange={ (e) => setEmail(e.target.value) }
                 />
                 <Button
                     type="submit"
                     variant='outline'
                     colorScheme='blue'
-                    onClick={() =>
-                        toast({
-                        title: 'You have been added to the petition.',
-                        status: 'info',
-                        position: 'top',
-                        variant: 'subtle',
-                        duration: 3000,
-                        isClosable: true,
-                        })
-                    }
                     >
                     Submit
                 </Button>
