@@ -45,7 +45,7 @@ export function SignIn() {
       className='border-2 border-sky-600 rounded-lg shadow-lg p-3 text-center text-sky-600 flex items-center justify-center' 
       onClick={signInWithGoogle}
       >
-      Sign In
+      Sign in with Google
       </motion.button>
     </div>
   )
