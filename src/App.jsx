@@ -7,7 +7,7 @@ import UCR from './assets/ucr.jpg'
 import './App.css'
 
 function App() {
-  var [DocsCount, setDocsCount] = useState(463)
+  var [DocsCount, setDocsCount] = useState(441)
 
   // const countingDocs = async () => {
   //   const coll = collection(db, "signed");
