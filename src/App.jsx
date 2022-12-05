@@ -7,7 +7,7 @@ import UCR from './assets/ucr.jpg'
 import './App.css'
 
 function App() {
-  var [DocsCount, setDocsCount] = useState(441)
+  var [DocsCount, setDocsCount] = useState(456)
 
   // const countingDocs = async () => {
   //   const coll = collection(db, "signed");
@@ -57,12 +57,11 @@ function App() {
             We pay tuition to succeed in our classes. Closing the library at 8 pm does not align with the standards of the students attending UCR. A quiet space is needed at all hours for all students especially students who don't have the accommodation of a quiet room in their homes. Once you sign, you will receive updates regarding the status of our petition as well as a count update for the amount of UCR students who have also signed.
           </h3>
           <div className='pb-5'>
-            <Form />
             <div className='grid'>
             <div className='flex justify-center text-md font-bold text-blue-500 ml-1 mr-1 mt-1 md:ml-10 md:mr-10 text-center'>
             Signed: {DocsCount} UCR Students
             </div>
-            <div className='flex justify-center text-xs font-bold text-blue-300 ml-1 mr-1 mt-1 md:ml-10 md:mr-10 text-center'>*Updated Daily*</div>
+            <div className='flex justify-center text-xs font-bold text-blue-300 ml-1 mr-1 mt-1 md:ml-10 md:mr-10 text-center'>*Petition Closed*</div>
             </div>
           </div>
         </main>
